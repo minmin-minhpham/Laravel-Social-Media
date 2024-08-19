@@ -1,0 +1,19 @@
+services:
+    social:
+        container_name: laravel-social
+        image: webdevops/php-nginx-dev:8.2
+        volumes:
+            - ./:/app
+        ports:
+            - 8080:80
+        environment:
+            - PHP_DEBUGGER=xdebug
+            - PHP_DISPLAY_ERRORS=1
+            - PHP_DATE_TIMEZONE=Asia/Ho_Chi_Minh
+            - WEB_DOCUMENT_ROOT=/app/public
+        networks:
+            - proxy
+
+networks:
+    proxy:
+        external: true
